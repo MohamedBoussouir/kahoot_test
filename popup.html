@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>Kahoot AI Helper</title>
+  <style>
+    body {
+      width: 280px;
+      font-family: system-ui, -apple-system, sans-serif;
+      padding: 14px;
+      margin: 0;
+      background: #f8fafc;
+      color: #0f172a;
+    }
+    h3 {
+      margin: 0 0 12px;
+      font-size: 15px;
+      text-align: center;
+      color: #1e293b;
+    }
+    .card {
+      background: #ffffff;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 10px;
+    }
+    .field-label {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      display: block;
+      color: #475569;
+    }
+    input[type="password"], input[type="text"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 7px 9px;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      font-size: 12px;
+      direction: ltr;
+      outline: none;
+    }
+    input[type="password"]:focus, input[type="text"]:focus {
+      border-color: #3b82f6;
+    }
+    .radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .radio-label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      color: #334155;
+    }
+    button.save-btn {
+      width: 100%;
+      padding: 8px;
+      background: #2563eb;
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    button.save-btn:hover {
+      background: #1d4ed8;
+    }
+    .status-msg {
+      text-align: center;
+      font-size: 12px;
+      margin-top: 8px;
+      min-height: 16px;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <h3>إعدادات Kahoot AI</h3>
+
+  <div class="card">
+    <label class="field-label" for="apiKeyInput">Groq API Key:</label>
+    <input type="password" id="apiKeyInput" placeholder="gsk_..." autocomplete="off">
+  </div>
+
+  <div class="card radio-group">
+    <span class="field-label">طريقة التفاعل:</span>
+    <label class="radio-label">
+      <input type="radio" name="action_mode" value="click" checked>
+      <span>نقر تلقائي مباشر (Auto Click)</span>
+    </label>
+    <label class="radio-label">
+      <input type="radio" name="action_mode" value="highlight">
+      <span>تلوين وتحديد فقط (Highlight Only)</span>
+    </label>
+  </div>
+
+  <button id="saveBtn" class="save-btn">حفظ الإعدادات</button>
+  <div id="status" class="status-msg"></div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
